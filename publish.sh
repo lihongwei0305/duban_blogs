@@ -3,7 +3,10 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-rm -rf docs/.vitepress/dist
+
+if [  -d docs/.vitepress/dist ]; then
+     rm -rf docs/.vitepress/dist
+fi
 
 # 生成静态文件
 yarn docs:build

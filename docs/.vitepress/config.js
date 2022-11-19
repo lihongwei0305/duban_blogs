@@ -1,6 +1,7 @@
 export default {
     title: 'Duban_Blog',
     description: 'Just playing around.',
+    base: '/duban_blogs_preview/',
     markdown: {
         theme: 'material-palenight',
         lineNumbers: true
