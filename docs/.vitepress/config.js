@@ -13,6 +13,7 @@ export default {
                     {text: 'Array', link: '/src/javaScript/array'},
                     {text: 'Object', link: '/src/javaScript/object'},
                     {text: 'Js高级', link: '/src/javaScript/jsAdvanced'},
+                    {text: 'Dom', link: '/src/javaScript/dom'},
                 ]
             },
             {
