@@ -6,7 +6,6 @@
 工厂模式是一种众所周知的设计模式，广泛应用于软件工程领域，用于抽象创建特定对象的过程。
 ```
 
-
 ## 下载 txt 文件
 
 ```html
@@ -59,8 +58,6 @@
 2. File对象是特殊类型的Blob
 3. URL.revokeObjectURL() 静态方法用来释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
    :::
-
-
 
 ## 异步变同步
 
@@ -183,32 +180,52 @@ function throttle(func, delay, isImmediate = false) {
         })
     }
 }
-
 ```
 
-# 定时器
+## 二分查找
+
+```js
+function binarySearch(arr, target) {
+    if (arr.length <= 0) return -1
+    let lowIndex = 0
+    let highIndex = arr.length - 1
+    while (lowIndex <= highIndex) {
+        let midInex = Math.floor((lowIndex + highIndex) / 2);
+        if (arr[midInex] < target) {
+            lowIndex = midInex + 1
+        } else if (arr[midInex] > target) {
+            highIndex = midInex - 1
+        } else {
+            return midInex
+        }
+    }
+
+}
+```
+
+## 定时器
+
 ```text
  默认为1ms，多层嵌套（5层）时为4ms
 ```
 
-
 ## 判断页面的状态
+
 ```js
 document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
-      console.log('page is visible'); 
+        console.log('page is visible');
     } else {
-      console.log('page is hidden');
+        console.log('page is hidden');
     }
 });
 ```
 
-
-
 ## JS打印
+
 ```js
 // 1. 不允许打印
-window.matchMedia("print").addListener(function() {
-  window.alert("当前页面不允许打印");
+window.matchMedia("print").addListener(function () {
+    window.alert("当前页面不允许打印");
 })
 ```
