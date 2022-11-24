@@ -229,3 +229,11 @@ window.matchMedia("print").addListener(function () {
     window.alert("当前页面不允许打印");
 })
 ```
+
+## 全屏API
+- `document.fullscreenEnabled`：浏览器是否支持全屏模式
+- `Element.requestFullscreen()`：使元素进入全屏模式
+- `document.exitFullscreen()`：退出全屏
+- `document.fullscreenElement`：检查当前是否有节点处于全屏状态
+- `document.fullscreenchange`：进入全屏/离开全屏，触发事件
+- `document.fullscreenerror`：无法进入全屏时触发
