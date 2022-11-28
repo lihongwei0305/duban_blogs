@@ -191,10 +191,10 @@ function binarySearch(arr, target) {
     let highIndex = arr.length - 1
     while (lowIndex <= highIndex) {
         let midInex = Math.floor((lowIndex + highIndex) / 2);
-        if (arr[midInex] < target) {
-            lowIndex = midInex + 1
-        } else if (arr[midInex] > target) {
+        if (target < arr[midInex]) {
             highIndex = midInex - 1
+        } else if (arr[midInex] > target) {
+            lowIndex = midInex + 1
         } else {
             return midInex
         }

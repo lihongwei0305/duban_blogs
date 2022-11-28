@@ -13,10 +13,10 @@
 ```js
 let person = {}
 Object.defineProperty(person, 'name', {
-    Configurable: false,
-    Enumerable: false,
-    Writable: false,
-    Value: 'zhangsan'
+    configurable: false,
+    enumerable: false,
+    writable: false,
+    value: 'zhangsan'
 })
 ```
 
