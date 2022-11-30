@@ -15,6 +15,7 @@ export default {
                     {text: 'Object', link: '/src/javaScript/object'},
                     {text: 'Js高级', link: '/src/javaScript/jsAdvanced'},
                     {text: 'Dom', link: '/src/javaScript/dom'},
+                    {text: 'Util', link: '/src/javaScript/util'},
                 ]
             },
             {
