@@ -20,7 +20,7 @@ export default {
             {
                 text: '',
                 items: [
-                    {text: 'Vue', link: '/src/vue/vue'},
+                    {text: 'Vue', link: '/src/vue/vue3'},
                 ]
             }
         ],
