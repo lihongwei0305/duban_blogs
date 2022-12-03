@@ -3,7 +3,7 @@
 ## defineProperty
 - 修改属性的默认特性
     - [[Configurable]]: 表示属性是否可以通过delete 删除并重新定义，是否可以修改它的特 性，以及是否可以把它改为访问器属性。
-    - [Enumerable]]：表示属性是否可以通过for-in 循环返回。
+    - [[Enumerable]]：表示属性是否可以通过for-in 循环返回。
     - [[Writable]]：表示属性的值是否可以被修改。
     - [[Value]]：包含属性实际的值。
     - [[Get]]：获取函数，在读取属性时调用。默认值为undefined。
