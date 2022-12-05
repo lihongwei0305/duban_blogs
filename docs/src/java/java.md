@@ -105,3 +105,4 @@ public class CallableThread implements Callable<String> {
 ```
 
 ::: tip Callable接口实现弥补了Runnable实现多线程没有返回值的问题。
+:::
