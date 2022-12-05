@@ -1,5 +1,18 @@
 export const nav = [
-    {text: '前端', link: '/src/javaScript/array'},
+    {
+        text: '前端',
+        items: [
+            {
+                text: 'javaScript',
+                link: '/src/javaScript/array',
+            },
+            {
+                text: 'vue',
+                link: '/src/javaScript/vue/vue3',
+            }
+
+        ]
+    },
     {
         text: '后端',
         link: '/src/java/java',
@@ -27,6 +40,13 @@ export const sidebar = {
                 {text: 'Library', link: '/src/javaScript/library'},
             ]
         },
+        {
+            text: ' ',
+            items: [
+                {text: 'vue', link: '/src/javaScript/vue/vue3'},
+            ]
+        }
+
     ]
 
 }
