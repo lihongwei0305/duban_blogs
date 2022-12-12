@@ -17,6 +17,10 @@ export const nav = [
         text: '后端',
         link: '/src/java/java',
     },
+    {
+        text: 'Linux',
+        link: '/src/linux/linux',
+    },
 ]
 
 export const sidebar = {
@@ -47,7 +51,15 @@ export const sidebar = {
             ]
         }
 
-    ]
+    ],
+    "/src/linux/": [
+        {
+            text: 'Linux',
+            items: [
+                {text: '文件系统', link: '/src/linux/fs'},
+            ]
+        },
+    ],
 
 }
 
