@@ -57,6 +57,7 @@ export const sidebar = {
             text: 'Linux',
             items: [
                 {text: '文件系统', link: '/src/linux/fs'},
+                {text: '用户管理', link: '/src/linux/user'},
             ]
         },
     ],

@@ -80,3 +80,22 @@ let e = arr1.reduce((p, c) => {
 }, [])
 ```
 
+
+:::: code-group
+
+::: code-group-item Vite
+
+```ts {7-11}
+// vite.config.ts
+import VueMacros from 'unplugin-vue-macros/vite'
+import Vue from '@vitejs/plugin-vue'
+export default defineConfig({
+  plugins: [
+    VueMacros(),
+    Vue({
+      include: [/\.vue$/, /setup\.[cm]?[jt]sx?$/],
+      //                   ⬆️ setupSFC pattern need to be added
+    }),
+  ],
+})
+```

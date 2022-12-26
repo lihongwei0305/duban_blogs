@@ -56,18 +56,6 @@
 
 
 ## Linux文件权限
-- `/etc/passwd` 将用户的登录名匹配到对应的UID值
-  - eg: `root:x:0:0:root:/root:/bin/bash` 对应字段说明:
-    - 登录用户名
-    - 用户密码
-    - 用户账号的UID(User ID)
-    - 用户账号的组ID(Group ID)
-    - 用户账号的文本描述(备注)
-    - 用户HOME目录的位置
-    - 用户默认的shell
-- `/etc/shallow` 密码管理文件
-- `usermod` 添加用户
-- `userdel` 删除用户
 - `groupadd` 添加组
 - `groupmod` 修改组
   - `-n` 修改组名
