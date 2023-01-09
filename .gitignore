@@ -24,3 +24,5 @@ node_modules/
 # Typescript build info
 *.tsbuildinfo
 /.yarnrc.yml
+/.yarn/
+/pnpm-lock.yaml
