@@ -4,6 +4,7 @@
 - `touch [fileName]` 创建文件
 - `mkdir [fileName]` 创建目录
     - `-p` 创建嵌套目录
+      - eg: `mkdir -p a/aa/aaa`
 - `cp [source] [destination]` 复制文件或目录
     - `-i` 如果目标文件存在,询问是否需要覆盖已有文件
     - `-R` 递归地复制整个目录的内容
@@ -39,6 +40,7 @@
     - `-f` 显示PID和PPID
     - `--forest` 嵌套显示进程关系
 - `top` 显示进程(动态的)
+- `rpm -qa command` 查询命令十是否安装
 
 ## 创建全局变量
 

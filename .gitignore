@@ -26,3 +26,5 @@ node_modules/
 /.yarnrc.yml
 /.yarn/
 /pnpm-lock.yaml
+/.pnp.cjs
+/.pnp.loader.mjs

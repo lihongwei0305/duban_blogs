@@ -7,3 +7,9 @@ bootbox(https://github.com/makeusabrew/bootbox)
 
 codemirror(https://juejin.cn/post/7185811917439500349#heading-5)
 - codemirror6 + vue3
+
+scrollyvideo(https://scrollyvideo.js.org/)
+- 可滚动的video
+
+scrollyvideo(https://github.com/lgarron/clipboard-polyfill)
+- 文本复制到剪贴板
