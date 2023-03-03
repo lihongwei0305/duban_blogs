@@ -64,6 +64,7 @@ export const sidebar = {
                 {text: 'Dom', link: '/src/frontEnd/javaScript/dom'},
                 {text: 'Util', link: '/src/frontEnd/javaScript/util'},
                 {text: 'Library', link: '/src/frontEnd/javaScript/library'},
+                {text: 'RegExp', link: '/src/frontEnd/javaScript/reg'},
             ]
         },
         {
