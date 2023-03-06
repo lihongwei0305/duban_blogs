@@ -1,5 +1,12 @@
 ## 
 - 每次登录Linux系统，bash shell都会访问/etc/profile启动文件以及3个针对每个用户的本地启动文件：$HOME/.bash_profile、$HOME/.bash_login和$HOME/.profile
+## Linux文件类型
+- `-` 普通文件
+- `d` 目录
+- `c` 字符设备
+- `l` 符号链接文件
+- `p` 管道文件
+- `s` 套接字文件,用于实现两个进程的通信
 ## 命令
 - `touch [fileName]` 创建文件
 - `mkdir [fileName]` 创建目录
