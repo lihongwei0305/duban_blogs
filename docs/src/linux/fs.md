@@ -48,6 +48,8 @@
     - `--forest` 嵌套显示进程关系
 - `top` 显示进程(动态的)
 - `rpm -qa command` 查询命令十是否安装
+- `mount` 挂载
+  - eg: `mount -t cifs -o username=username,password:password //192.168.50.39/share /share`
 
 ## 创建全局变量
 
