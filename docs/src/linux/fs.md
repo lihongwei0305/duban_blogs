@@ -1,6 +1,6 @@
 ## 
 - 每次登录Linux系统，bash shell都会访问/etc/profile启动文件以及3个针对每个用户的本地启动文件：$HOME/.bash_profile、$HOME/.bash_login和$HOME/.profile
-## Linux文件类型1
+## Linux文件类型
 - `-` 普通文件
 - `d` 目录
 - `c` 字符设备
