@@ -25,6 +25,16 @@
 - `/bin` 可执行文件,用户命令
 - `/sbin` 管理命令
 ## 命令
+- 查看cpu
+  -  `lscpu`
+  -  `cat /proc/cpuinfo`
+-  查看内存大小
+  - `free`
+  - `cat /proc/meminfo`
+- 查看硬盘和分区情况
+  - `lsblk`
+  - `cat /proc/partitions`
+- `uname -r` 查看内核版本
 - `touch [fileName]` 创建文件
 - `mkdir [fileName]` 创建目录
     - `-p` 创建嵌套目录
