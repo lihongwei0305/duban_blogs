@@ -15,3 +15,4 @@
 - 轮播图 (https://www.embla-carousel.com/get-started/vue/)
 - 
 - 一个极其快速和轻量级的虚拟DOM (https://millionjs.org/docs)
+  - vue 吐司库 (https://sonner.emilkowal.ski/)
