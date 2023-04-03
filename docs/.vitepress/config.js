@@ -88,6 +88,7 @@ export const sidebar = {
                 {text: '命令', link: '/src/linux/command'},
                 {text: '文件系统', link: '/src/linux/fs'},
                 {text: '用户管理', link: '/src/linux/user'},
+                {text: 'I/O重定向和管道', link: '/src/linux/io'},
             ]
         },
     ],
