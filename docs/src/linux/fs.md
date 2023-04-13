@@ -77,7 +77,7 @@
     - `-f` 显示PID和PPID
     - `--forest` 嵌套显示进程关系
 - `top` 显示进程(动态的)
-- `rpm -qa command` 查询命令十是否安装
+- `rpm -qa command` 查询命令是否安装
 - `mount` 挂载
     - eg: `mount -t cifs -o username=username,password:password //192.168.50.39/share /share`
 - `dd if=/dev/zero of=/data/biggile bs=1M count=100` 在data下生成100M的文件
