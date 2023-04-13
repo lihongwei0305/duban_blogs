@@ -68,9 +68,11 @@ export const sidebar = {
             ]
         },
         {
-            text: ' ',
+            text: 'vue',
             items: [
-                {text: 'vue', link: '/src/frontEnd/javaScript/vue/vue3'},
+                {text: 'vue', link: '/src/frontEnd/vue/vue'},
+                {text: 'vue2', link: '/src/frontEnd/vue/vue2'},
+                {text: 'vue3', link: '/src/frontEnd/vue/vue3'},
             ]
         },
         {
@@ -88,7 +90,6 @@ export const sidebar = {
                 {text: '命令', link: '/src/linux/command'},
                 {text: '文件系统', link: '/src/linux/fs'},
                 {text: '用户管理', link: '/src/linux/user'},
-                {text: 'I/O重定向和管道', link: '/src/linux/io'},
             ]
         },
     ],
@@ -108,7 +109,7 @@ export default {
     description: 'Just playing around.',
     base: '/duban_blogs_preview/',
     markdown: {
-        theme: 'material-palenight',
+        theme: 'material-theme',
         lineNumbers: true
     },
     themeConfig: {
