@@ -20,32 +20,107 @@
     2. Array.form
 ```
 
-## 交集 差集 并集
-
+## 交集
+:::: code-group
 ```js
-  let arr1 = [
-    {id: 1, name: 'a'},
-    {id: 2, name: 'b'},
-    {id: 3, name: 'c'},
-    {id: 4, name: 'd'},
-]
-let arr2 = [
-    {id: 1, name: 'a'},
-    {id: 2, name: 'b'},
-    {id: 13, name: 'c3'},
-    {id: 14, name: 'd4'},
-]
-// ES6写法
-// arr1 与 arr2 的交集
-let arr3 = arr1.filter(v => arr2.some(y => v.id === y.id))
-// arr1 与 arr2 的差集
-let arr4 = arr1.filter(v => !arr2.some(y => v.id === y.id))
-// arr1 与 arr2 的并集
-let arr5 = arr1.concat(arr2.filter(v => !arr1.some(y => v.id === y.id)))
+// 使用循环和条件判断
+function differenceBy(arr1, arr2, key) {
+    let arr3 = []
+    arr1.forEach(v=>{
+        const item2 = arr2.find(y=> v[key] === y[key])
+        if (item2) {
+            arr3.push(v)
+        }
+    })
+    return arr3
+}
+
 ```
 
-::: tip 提示 并集 : arr1 拼接 arr2 与 arr1 的差集
-:::
+```js
+// 使用filter
+function differenceBy(arr1, arr2, key) {
+   return arr1.filter(v=> arr2.some(y=> v[key] === y[key]))
+}
+
+
+```
+
+```js
+// 使用ES6 Map
+function differenceBy(arr1, arr2, key) {
+    const map = new Map(arr1.map(v => [v[key], v]))
+    return arr2.filter(v=> map.has(v[key]))
+}
+```
+
+::::
+
+## 差集
+:::: code-group
+```js
+// 使用循环和条件判断
+function differenceBy(arr1, arr2, key) {
+    let arr3 = []
+    arr1.forEach(v=>{
+        const item2 = arr2.find(y=> v[key] === y[key])
+        if (!item2) {
+            arr3.push(v)
+        }
+    })
+    return arr3
+}
+
+```
+
+```js
+// 使用filter
+function differenceBy(arr1, arr2, key) {
+   return arr1.filter(v=> !arr2.some(y=> v[key] === y[key]))
+}
+
+
+```
+
+```js
+// 使用ES6 Map
+function differenceBy(arr1, arr2, key) {
+    const map = new Map(arr1.map(v => [v[key], v]))
+    return arr2.filter(v=> !map.has(v[key]))
+}
+```
+
+::::
+
+
+
+
+## 并集
+:::: code-group
+```js
+// 使用concact和reduce
+function unionBy(arr1, arr2, key) {
+    const unio = arr1.concat(arr2)
+    unio.reduce((p, c) => {
+        if (!p.some(v => v[key] === c[key])) {
+            p.push(c)
+        }
+        return p;
+    }, [])
+}
+```
+
+```js
+// 使用Map
+function unionBy(arr1, arr2, key) {
+    const map = new Map()
+    arr1.forEach(v=> map.set(v[key],v))
+    arr2.forEach(v=> map.set(v[key],v))
+    return [...map.values()]
+}
+```
+::::
+
 
 ## 去重
 
@@ -81,21 +156,3 @@ let e = arr1.reduce((p, c) => {
 ```
 
 
-:::: code-group
-
-::: code-group-item Vite
-
-```ts {7-11}
-// vite.config.ts
-import VueMacros from 'unplugin-vue-macros/vite'
-import Vue from '@vitejs/plugin-vue'
-export default defineConfig({
-  plugins: [
-    VueMacros(),
-    Vue({
-      include: [/\.vue$/, /setup\.[cm]?[jt]sx?$/],
-      //                   ⬆️ setupSFC pattern need to be added
-    }),
-  ],
-})
-```
