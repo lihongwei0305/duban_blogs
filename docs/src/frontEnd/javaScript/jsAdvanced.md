@@ -1,5 +1,17 @@
 # JS高级
 
+## Promise
+- `Promise.all` 
+   - 接收一个Promise的iterable类型的输入,返回一个Promise实例, 返回值是所有Promise的resolve的结果组成的数组
+   - 如果其中一个Promise返回reject,那么就会reject
+- `Promise.allSettled` 
+  - 以promise的可迭代对象作为输入,返回一个promise实例
+  - 会返回所有promise执行完后的状态和其结果所组成的对象数组
+- `Promise.any`
+  - 返回最快resolve的那一个
+- `Promise.race`
+  - 返回最快执行完的那一个,不管resolve,还是reject
+
 ## 工厂模式
 
 ```text
