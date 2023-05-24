@@ -74,21 +74,22 @@
 ## 异步变同步
 
 ```js
-function fn() {
-    let timer;
-    return new Promise((resolve) => {
-        console.log(1);
-        timer = setTimeout(() => {
-            clearTimeout(timer);
-            timer = null;
-            resolve();
-        }, 300);
-    });
+function fun(fn) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      fn()
+      resolve()
+    })
+  })
 }
 
 async function fn1() {
-    await fn();
-    console.log(2);
+  await fun(()=>{
+    for (var i = 0; i < 1000; i++) {
+      console.log(i)
+    }
+  });
+  console.log(2);
 }
 
 fn1()
