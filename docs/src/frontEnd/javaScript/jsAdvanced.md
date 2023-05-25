@@ -1,16 +1,17 @@
 # JS高级
 
 ## Promise
-- `Promise.all` 
-   - 接收一个Promise的iterable类型的输入,返回一个Promise实例, 返回值是所有Promise的resolve的结果组成的数组
-   - 如果其中一个Promise返回reject,那么就会reject
-- `Promise.allSettled` 
-  - 以promise的可迭代对象作为输入,返回一个promise实例
-  - 会返回所有promise执行完后的状态和其结果所组成的对象数组
+
+- `Promise.all`
+    - 接收一个Promise的iterable类型的输入,返回一个Promise实例, 返回值是所有Promise的resolve的结果组成的数组
+    - 如果其中一个Promise返回reject,那么就会reject
+- `Promise.allSettled`
+    - 以promise的可迭代对象作为输入,返回一个promise实例
+    - 会返回所有promise执行完后的状态和其结果所组成的对象数组
 - `Promise.any`
-  - 返回最快resolve的那一个
+    - 返回最快resolve的那一个
 - `Promise.race`
-  - 返回最快执行完的那一个,不管resolve,还是reject
+    - 返回最快执行完的那一个,不管resolve,还是reject
 
 ## 工厂模式
 
@@ -75,21 +76,21 @@
 
 ```js
 function fun(fn) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      fn()
-      resolve()
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            fn()
+            resolve()
+        })
     })
-  })
 }
 
 async function fn1() {
-  await fun(()=>{
-    for (var i = 0; i < 1000; i++) {
-      console.log(i)
-    }
-  });
-  console.log(2);
+    await fun(() => {
+        for (var i = 0; i < 1000; i++) {
+            console.log(i)
+        }
+    });
+    console.log(2);
 }
 
 fn1()
@@ -97,10 +98,15 @@ fn1()
 
 ```
 
-## 防抖 节流(简易版)
+## 防抖
+- 控制函数执行频率
+- 在规定的时间段内只执行最后一次操作,忽略前面的操作
+- 当触发一次事件后,在规定的时间段内,如果再次触发了这个事件,则重新计时,直到在该时间段内没有再次触发事件,才会执行函数
+- 常用与输入框输入,调整窗口大小
 
-```js
-//防抖
+:::: code-group
+
+```js[简易版]
 function debounce(fun, delay) {
     return (arg) => {
         clearTimeout(fun.id)
@@ -109,24 +115,9 @@ function debounce(fun, delay) {
         }, delay)
     }
 }
-
-//节流
-function throttle(fun, delay) {
-    return (arg) => {
-        if (fun.id) return
-        fun.id = setTimeout(() => {
-            fun.call(this, delay)
-            fun.id = null
-            clearTimeout(fun.id)
-        }, delay)
-    }
-}
 ```
 
-## 防抖 节流(进阶版)
-
-```js
-// 防抖
+```js[进阶版]
 let inputEl = document.querySelector('input')
 const inputChange = (e) => {
     console.log('输入的值为:', e.target.value)
@@ -160,8 +151,30 @@ function debounce(fun, delay, isImmediate = false) {
 
     }
 }
+```
 
-// 节流
+::::
+
+## 节流
+- 控制函数执行频率
+- 在规定时间内只执行一次函数
+- 当触发一次事件后,首先会立即执行函数,在规定的时间内,不管触发多少次,都只执行一次
+- 常用于鼠标事件,滚动条事件
+:::: code-group
+```js[简易版]
+function throttle(fun, delay) {
+    return (arg) => {
+        if (fun.id) return
+        fun.id = setTimeout(() => {
+            fun.call(this, arg)
+            fun.id = null
+            clearTimeout(fun.id)
+        }, delay)
+    }
+}
+```
+
+```js[进阶版]
 
 let scrollFn = () => {
     console.log("当前位置:", document.documentElement.scrollTop)
@@ -193,7 +206,9 @@ function throttle(func, delay, isImmediate = false) {
         })
     }
 }
+
 ```
+::::
 
 ## 二分查找
 
@@ -244,6 +259,7 @@ window.matchMedia("print").addListener(function () {
 ```
 
 ## 全屏API
+
 - `document.fullscreenEnabled`：浏览器是否支持全屏模式
 - `Element.requestFullscreen()`：使元素进入全屏模式
 - `document.exitFullscreen()`：退出全屏
