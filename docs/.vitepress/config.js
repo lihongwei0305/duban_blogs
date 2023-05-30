@@ -43,6 +43,10 @@ export const nav = [
         text: 'Linux',
         link: '/src/linux/linux',
     },
+    {
+        text: '面试',
+        link: '/src/interview/interview',
+    },
 ]
 
 export const sidebar = {
@@ -101,7 +105,14 @@ export const sidebar = {
             ]
         },
     ],
-
+    "/src/interview/": [
+        {
+            text: '',
+            items: [
+                {text: 'Css  ', link: '/src/interview/css'},
+            ]
+        },
+    ],
 }
 
 export default {
