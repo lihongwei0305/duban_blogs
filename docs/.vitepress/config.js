@@ -110,6 +110,8 @@ export const sidebar = {
             text: '',
             items: [
                 {text: 'Css  ', link: '/src/interview/css'},
+                {text: 'JavaScript  ', link: '/src/interview/javascript'},
+                {text: 'NetWork  ', link: '/src/interview/network'},
             ]
         },
     ],
