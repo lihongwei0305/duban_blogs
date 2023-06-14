@@ -112,6 +112,7 @@ export const sidebar = {
                 {text: 'Css  ', link: '/src/interview/css'},
                 {text: 'JavaScript  ', link: '/src/interview/javascript'},
                 {text: 'NetWork  ', link: '/src/interview/network'},
+                {text: 'Browser  ', link: '/src/interview/browser'},
             ]
         },
     ],
