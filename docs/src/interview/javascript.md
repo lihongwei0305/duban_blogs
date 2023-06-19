@@ -1,4 +1,18 @@
-## 假设前端需要发n请求,写一个方法同时只并发3个请求,知道n个请求完成
+## 模拟微任务
+```js
+function createMicroTask(callback) {
+    let text = document.createTextNode(0)
+    let ob = new MutationObserver(() => {
+        console.log('变化了')
+        callback()
+    })
+    ob.observe(text, {
+        characterData: true
+    })
+    text.textContent = '1'
+}
+```
+## 假设前端需要发n请求,写一个方法同时只并发3个请求,直到n个请求完成
 
 ```js
 async function sendRequests(requests, concurrency) {
