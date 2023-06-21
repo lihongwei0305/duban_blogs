@@ -28,14 +28,19 @@
 5. 绘制到屏幕上
 
 ## 浏览器在一帧会干那些事
-
-1. 接受输入事件
-2. 执行事件回调
-3. 开始一帧
-4. 执行RequestAnimationFrame
-5. 页面布局,计算样式
-6. 绘制渲染
-7. 执行RequestIdelCallback
+1. 帧开始（Frame Start）
+2. 输入事件处理程序
+3. requestAnimationFrame
+4. 解析HTML（Parse HTML）
+5. 重新计算样式（Recalc Styles）
+6. 布局（Layout）
+7. 更新图层树（Update Layer Tree）
+8. 绘制（Paint）
+9. 合成（Composite）
+10. 光栅化（Raster Scheduled and Rasterize）
+11. 帧结束（Frame End）
+12. 帧上传（Frame Ships）
+13. requestIdleCallback
 
 ## 重汇和回流
 
