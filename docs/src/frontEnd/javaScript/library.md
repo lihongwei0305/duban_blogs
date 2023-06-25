@@ -11,9 +11,11 @@
 - 文本复制到剪贴板 clipboard(https://github.com/lgarron/clipboard-polyfill)
 
 - css3动画 css3-animation (https://www.webhek.com/post/css3-animation-sniplet-collection/#/)
--
+
+- 用一行代码添加动画 https://auto-animate.formkit.com/#usage-vue
+
 - 轮播图 (https://www.embla-carousel.com/get-started/vue/)
--
+
 - 一个极其快速和轻量级的虚拟DOM (https://millionjs.org/docs)
 
-  - react 吐司库 (https://sonner.emilkowal.ski/)
+- react 吐司库 (https://sonner.emilkowal.ski/)
