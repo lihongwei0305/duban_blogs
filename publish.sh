@@ -21,3 +21,5 @@ git commit -m 'publish'
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
 git push -f https://github.com/lihongwei0305/duban_blogs_preview.git master
 
+# https://lihongwei0305.github.io/duban_blogs_preview/
+
