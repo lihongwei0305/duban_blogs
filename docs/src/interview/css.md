@@ -1,3 +1,43 @@
+## HTML5新特性
+
+- 语义化标签(header,nav,aside,section,footer)
+- 视频和音频(audit,radio)
+- canvas绘图
+- 地理定位
+- Web Storage
+- web workers
+- web socket
+
+## css3新特性
+
+1. ```选择器增强```
+    - 伪类选择器和伪元素选择器
+2. 盒模型
+3. 边框样式
+    - `border-radius`
+    - `box-shadow`
+4. 渐变
+5. 过渡和动画
+6. 弹性盒子布局
+7. 响应式设计
+    - 媒体查询
+    - 响应式单位(rem,vw,vh)
+8. 字体和文本样式
+    - `@font-face`自定义字体
+    - `text-overflow`
+
+## css盒模型
+
+可以把每一个元素看作一个盒子，都由内容区（content）、内边距（padding）、边框（border）、外边距（margin）组成
+
+### W3C标准和盒模型
+
+- 宽度：content + padding + border
+
+### IE盒模型
+
+- 宽度： content
+
 ## BFC
 
 BFC(Block Formatting Context)块级格式化上下文，按照块级盒子布局。
@@ -9,6 +49,15 @@ BFC是一个独立的布局空间，其中元素不会受到外界的影响。
 - 可以包含浮动元素，从而避免浮动元素对其他元素的影响。
 - 可以防止 margin 塌陷现象的发生。
 - BFC的边缘与页面边缘或其他 BFC 的边缘相接触时，会发生一些特殊的布局规则。
+
+### 特殊的布局
+
+- 边距折叠（Margin
+  Collapsing）：当相邻的两个元素的上下边距相遇时，它们的垂直边距会发生折叠，取最大的边距值作为最终的边距值。但是，如果其中一个元素包含了一个BFC（如设置了浮动、绝对定位、inline-block等），那么边距折叠将不会发生。
+
+- 清除浮动（Clear Float）：当一个BFC包含了浮动元素时，BFC会自动计算其高度，确保包含的浮动元素不会溢出。这样可以避免父元素塌陷（Collapse）。
+
+- 阻止文字环绕：当一个BFC包含了浮动元素时，浮动元素不会环绕在BFC的周围，而是会被BFC的边缘包裹，使文本等内容不会受到浮动元素的影响。
 
 ### 触发BFC的条件
 
@@ -41,25 +90,45 @@ BFC是一个独立的布局空间，其中元素不会受到外界的影响。
 - transfer:scale(0.5)
 - 利用 `<svg> <text style="font-size=8px"></text> </svg>`
 
-## css盒模型
+## 盒子垂直水平居中
 
-可以把每一个元素看作一个盒子，都由内容区（content）、内边距（padding）、边框（border）、外边距（margin）组成
+::::code-group
 
-### W3C标准和盒模型
+```css[相对于自身]
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: #6ee7b7;
 
-- 宽度：width + padding + border
+    /*  第一种 */
+    position: absolute;
+    inset: 0;
+    margin: auto;
 
-### IE盒模型
+     /*  第二种 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
 
-- 宽度： width
+```css[相对于父级]
+.container{
+     /*  第一种 */    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     /*  第二种 */
+    display: grid;
+    place-content: center;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: #6ee7b7;
 
-## HTML5新特性
+}
+```
 
-- 语义化标签
-- 视频和音频
-- canvas绘图
-- 地理定位
-- 本地存储
-- web workers
-- web socket
-
+::::
