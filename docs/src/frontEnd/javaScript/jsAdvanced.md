@@ -108,10 +108,10 @@ fn1()
 
 ```js[简易版]
 function debounce(fun, delay) {
-    return (arg) => {
+    return (...arg) => {
         clearTimeout(fun.id)
         fun.id = setTimeout(() => {
-            fun.call(this, arg)
+            fun.apply(this, arg)
         }, delay)
     }
 }
@@ -131,10 +131,10 @@ inputEl.oninput = (arg) => {
 
 function debounce(fun, delay, isImmediate = false) {
     let isExcute = isImmediate
-    return (args) => {
+    return (...args) => {
         return new Promise((resolve, reject) => {
             if (isExcute) {
-                let res = fun.call(this, args)
+                let res = fun.apply(this, args)
                 resolve(res)
                 isExcute = false
             }
@@ -142,7 +142,7 @@ function debounce(fun, delay, isImmediate = false) {
                 clearTimeout(fun.id)
             }
             fun.id = setTimeout(() => {
-                let res = fun.call(this, args)
+                let res = fun.apply(this, args)
                 resolve(res)
                 fun.id = null
                 isExcute = isImmediate
@@ -163,10 +163,10 @@ function debounce(fun, delay, isImmediate = false) {
 :::: code-group
 ```js[简易版]
 function throttle(fun, delay) {
-    return (arg) => {
+    return (...arg) => {
         if (fun.id) return
         fun.id = setTimeout(() => {
-            fun.call(this, arg)
+            fun.apply(this, arg)
             fun.id = null
             clearTimeout(fun.id)
         }, delay)
@@ -198,7 +198,7 @@ function throttle(func, delay, isImmediate = false) {
             }
             if (func.id) return
             setTimeout(() => {
-                let res = func.call(this, args)
+                let res = func.apply(this, args)
                 resolve(res)
                 func.id = null
                 isExcute = isImmediate
