@@ -40,6 +40,10 @@ export const nav = [
         link: '/src/java/java',
     },
     {
+        text: '网络',
+        link: '/src/network/network',
+    },
+    {
         text: 'Linux',
         link: '/src/linux/linux',
     },
@@ -102,6 +106,7 @@ export const sidebar = {
             text: '',
             items: [
                 {text: 'Dart语法  ', link: '/src/flutter/dart'},
+                {text: 'Android  ', link: '/src/flutter/Android'},
             ]
         },
     ],
@@ -113,6 +118,21 @@ export const sidebar = {
                 {text: 'JavaScript  ', link: '/src/interview/javascript'},
                 {text: 'NetWork  ', link: '/src/interview/network'},
                 {text: 'Browser  ', link: '/src/interview/browser'},
+            ]
+        },
+    ],
+    "/src/network/": [
+        {
+            text: '',
+            items: [
+                {text: 'TCP/IP ', link: '/src/network/tcpip'},
+                {text: '应用层 ', link: '/src/network/ApplicationLayer'},
+                {text: '表示层 ', link: '/src/network/PresentationLayer'},
+                {text: '会话层 ', link: '/src/network/SessionLayer'},
+                {text: '传输层 ', link: '/src/network/TransportLayer'},
+                {text: '网络层 ', link: '/src/network/NetworkLayer'},
+                {text: '数据链路层 ', link: '/src/network/DataLinkLayer'},
+                {text: '物理层 ', link: '/src/network/PhysicalLayer'},
             ]
         },
     ],

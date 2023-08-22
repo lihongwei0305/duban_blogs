@@ -7,12 +7,12 @@
 - Web Storage
 - web workers
 - web socket
+  ``
 
 ## css3新特性
 
-1. ```选择器增强```
-    - 伪类选择器和伪元素选择器
-2. 盒模型
+1. 伪类选择器和伪元素选择器
+2. [盒模型](/src/interview/css.html#css盒模型)
 3. 边框样式
     - `border-radius`
     - `box-shadow`
@@ -30,34 +30,23 @@
 
 可以把每一个元素看作一个盒子，都由内容区（content）、内边距（padding）、边框（border）、外边距（margin）组成
 
-### W3C标准和盒模型
+### W3C标准盒模型(box-sizing: content-box)
 
-- 宽度：content + padding + border
+- 宽度：content
 
-### IE盒模型
+### IE盒模型(box-sizing: border-box)
 
-- 宽度： content
+- 宽度： content + padding + border
 
 ## BFC
 
-BFC(Block Formatting Context)块级格式化上下文，按照块级盒子布局。
-BFC是一个独立的布局空间，其中元素不会受到外界的影响。
+BFC(Block Formatting Context)块级格式化上下文，BFC是一个独立的布局空间，其中元素不会受到外界的影响。
 
 ### BFC特点
 
-- 内部的元素垂直方向上会一个接一个地排列，形成一个垂直的流。
-- 可以包含浮动元素，从而避免浮动元素对其他元素的影响。
-- 可以防止 margin 塌陷现象的发生。
-- BFC的边缘与页面边缘或其他 BFC 的边缘相接触时，会发生一些特殊的布局规则。
-
-### 特殊的布局
-
-- 边距折叠（Margin
-  Collapsing）：当相邻的两个元素的上下边距相遇时，它们的垂直边距会发生折叠，取最大的边距值作为最终的边距值。但是，如果其中一个元素包含了一个BFC（如设置了浮动、绝对定位、inline-block等），那么边距折叠将不会发生。
-
-- 清除浮动（Clear Float）：当一个BFC包含了浮动元素时，BFC会自动计算其高度，确保包含的浮动元素不会溢出。这样可以避免父元素塌陷（Collapse）。
-
-- 阻止文字环绕：当一个BFC包含了浮动元素时，浮动元素不会环绕在BFC的周围，而是会被BFC的边缘包裹，使文本等内容不会受到浮动元素的影响。
+- BGC是页面中一个隔离的独立容器，容器李的元素不会印象外部
+- 垂直方向的距离由margin决定，同一个BFC内部的两个相邻的元素会发生边距重叠问题
+- 计算BFC元素高度时，浮动元素也会参与运算
 
 ### 触发BFC的条件
 
