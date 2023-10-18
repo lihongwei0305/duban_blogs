@@ -109,19 +109,49 @@
 ### OSPF建立邻接关系的过程
 
 - 7种状态：
-    1. Down
-    2. Init
-    3. 2-Wwy
-    4. Exstart
-    5. Exchange
-    6. Loading
-    7. Full
+    1. Down(初始状态):路由器还未建立邻居关系
+    2. Init(初始状态):路由器发送hello报文,但未收到其他路由器的hello报文响应
+    3. 2-Wwy(双向状态):路由器已收到其他路由器的hello报文,建立邻居关系
+    4. Exstart(起始状态):协商主从关系
+    5. Exchange(交换状态):交换各自路由的汇总信息
+    6. Loading(加载状态): 互相发送链路状态请求报文
+    7. Full(完全状态)
 - 5种报文：
     1. Hello
-    2. DBD【DataBase Description】
-    3. LSR【Link State Request】
-    4. LSU【Link State Update】
-    5. LSAck
+    2. DBD/DD【DataBase Description】 数据库描述报文
+    3. LSR【Link State Request】 链路状态请求报文
+    4. LSU【Link State Update】 链路状态更新报文
+    5. LSAck 链路状态确认报文
+
+### OSPF的DR与BDR
+
+1. DR 指定路由器
+2. BDR 备份指定路由器
+3. Drothers 其它路由器 只与DR和BDR邻接关系,Drothers之间保持邻居关系
+
+#### DR与BDR的选举机制
+
+1. 先看优先级,运行OSPF的路由默认优先级为1,取值范围0-255,且优先级越大越优小
+2. 若优先级相同,则比较RID,RID最大的为DR,次大的为BDR
+
+::::tip
+优先级0不参与选举
+::::
+
+### OSPF组播地址
+
+1. DR/BDR监听 224.0.0.6
+2. Drothers监听224.0.0.5
+
+::::tip
+DR/BDR/Drothers的Hello包，统一发送到224.0.0.5
+::::
+
+```shell
+# 当ospf启动后，给路由器设置routerID，会不生效，需要对ospf软重启
+[HuaWei] ospf 1 router-id 1.1.1.1
+<HuaWei> reset ospf 1 process
+```
 
 ### OSPF 多区域应用及高级配置
 
@@ -142,10 +172,70 @@
 1. 骨干区域
 2. 非骨干区域
     1. 标准区域
-        - 可以学习所有理由
-    2. 末节/末梢区域
-    3. 完全末节区域
-    4. 非纯末节区域
+        - 域内路由器学习域内路由,ABR学习域间路由,ASBR学习外部路由
+    2. 末节/末梢区域（Stub）
+        - 只学习域内和域间路由,外部路由通过ABR的缺省路由访问
+    3. 完全末节区域（Totally Stubby）
+        - 只学习域内路由,ABR注入缺省路由
+    4. 非纯末节区域[NSSA]
+        - 学习域内、本区域的ASBR、域间，不学习其它区域的ASBR
     5. 非纯完全末节区域
-        - 只学习域内路由，本区域可以包含ASBR路由器，自身可以引入并学习外部路由；域间路由不在学习
+        - 只学习域内路由，本区域可以包含ASBR路由器，自身可以引入并学习外部路由；域间路由不在学习,其它区域引入的外部路由也不在学习了
 
+### OSPF链路状态
+
+#### OSPF链路状态通告LSA的类型
+
+| 类型代码  | 名称描述      | 用途阐述                          |
+|:-----:|-----------|-------------------------------|
+| Type1 | 路由器LSA    | 由区域内的路由器发出                    |
+| Type2 | 网络LSA     | 由区域的DR发出                      | 
+| Type3 | 网络汇总LSA   | 由ABR发出，其它区域的汇总链路通告            | 
+| Type4 | ASBR汇总LSA | 由ABR发出，用于通过ASBR信息             | 
+| Type5 | AS外部LSA   | 由ASBR发出，用于通告外部路由              | 
+| Type7 | NSSA外部LSA | 由NSSA区域的ASBR发出，用于通告本区域连接的外部路由 | 
+
+## ACL【Access Control List | 访问控制列表】
+
+### 访问控制列表的种类
+
+1. 基本类型
+    - 使用的表号为2000 - 2999
+2. 高级类型
+    - 使用的表号为 3000 - 3999
+    - 可同时根据源IP地址、目标IP地址、源端口号码、目标端口号码来进行访问控制
+3. 适配二层
+    - 使用的表号为 4000 - 4999
+    - 可同时根据源MAC地址、目标MAC地址进行访问控制
+4. 基于时间
+    - 可配合上诉的3种ACL类型协同工作
+
+#### ACL配置距离
+
+````text
+# 
+[HuaWei] acl 2001
+[HuaWei-acl-basic-2001] rule deny source 192.168.1.0 0.0.0.255
+[HuaWei] int g0/0/1
+[HuaWei] traffic-filter inbound acl 2001
+[HuaWei] rule deny source any    
+````
+
+## NAT
+
+### NAT的4种实现方式
+
+1. 静态转换
+2. 动态转换
+3. 端口多路复用[NAPT]
+4. Easy IP
+
+## IPv6
+
+### 地址分配方式
+
+1. 静态
+    - 手动配置静态地址
+2. 动态
+    - 无状态地址自动配置（SLAAC）
+    - 有状态地址自动配置（DHCPv6）
